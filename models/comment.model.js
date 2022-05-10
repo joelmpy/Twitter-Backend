@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const CommentsSchema = new mongoose.Schema({
 
     ownerID: { type: mongoose.Types.ObjectId, ref: 'User' },
-    tweet: { type: mongoose.Types.ObjectId, ref: 'Tweet' } ,
+    tweetID: { type: mongoose.Types.ObjectId, ref: 'Tweet' } ,
     text: String
 })
 

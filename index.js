@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('./config/passport')
 const UserRouter = require('./controllers/User.controller');
 const TweetRouter = require('./controllers/Tweet.controller');
+const CommentRouter = require('./controllers/Comment.controller');
 
 mongoose.connect('mongodb://localhost:27017/clone-twitter');
 
@@ -30,6 +31,7 @@ app.use(express.static('public'))
 
 app.use('/users', UserRouter)
 app.use('/tweets', TweetRouter)
+app.use('/comments', CommentRouter)
 
 
 app.listen(port, () => {
