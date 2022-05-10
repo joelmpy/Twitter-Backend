@@ -18,9 +18,9 @@ app.use(cors({
 }))
 
 app.use(session({
-  secret: 'MyAwesomeSecret', // string permettant de "signer" nos sessions
-  resave: true, // nous permet de garder notre session toujours a jour
-  saveUninitialized: false // nous permet de sauvegarder notre session
+  secret: 'MyAwesomeSecret', 
+  resave: true, 
+  saveUninitialized: false 
 }))
 app.use(passport.initialize())
 app.use(passport.session())

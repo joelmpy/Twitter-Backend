@@ -6,13 +6,13 @@ const bcrypt = require('bcrypt');
 passport.use(
   new LocalStrategy({
 
-    usernameField: 'email',
+    usernameField: 'username',
     passwordField: 'password',
 
   },
-    function (email, password, done) {
+    function (username, password, done) {
 
-      UsersModel.findOne({ email }, function (err, user) {
+      UsersModel.findOne({ username }, function (err, user) {
         if (err) {
           return done(err);
         }
