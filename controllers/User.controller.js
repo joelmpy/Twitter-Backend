@@ -11,8 +11,17 @@ const multer = require("multer");
 const upload = multer({ dest:'public/uploads/' }); // cette ligne va créer le dossier /public/uploads s'il n'existe pas
 
 router.get('/', function (req, res) {
-    res.send("welcome");
+    res.send("users");
 });
+
+router.get('/:id', async function(req, res, next) {
+    console.log(req.params);
+    req.params;
+    const id = req.params.id;
+    UsersModel.findById(id).exec().then(user=> {
+        res.json(user)
+    })
+})
 
 router.post('/register',
 
