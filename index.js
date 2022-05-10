@@ -8,7 +8,7 @@ const session = require('express-session');
 const passport = require('./config/passport')
 const UserRouter = require('./controllers/User.controller');
 
-mongoose.connect('mongodb://localhost:27017/express_login');
+mongoose.connect('mongodb://localhost:27017/clone-twitter');
 
 app.use(express.json())
 app.use(morgan("tiny"))
@@ -28,6 +28,7 @@ app.use(passport.session())
 app.use(express.static('public'))
 
 app.use('/', UserRouter)
+
 app.listen(port, () => {
   console.log('Server started on port: ' + port);
 });
