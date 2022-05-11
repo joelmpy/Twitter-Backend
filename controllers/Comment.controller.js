@@ -20,4 +20,15 @@ router.post('/', checkAuth, function (req, res) {
     });
 });
 
+router.delete('/:id', async function (req, res) {
+    const id = req.params.id
+    try {
+        await CommentsModel.deleteOne({ _id: id })
+        res.json({message: "The comment has been deleted"})
+    }catch(err) {
+        res.status(500).send(err)
+    }
+
+})
+
 module.exports = router

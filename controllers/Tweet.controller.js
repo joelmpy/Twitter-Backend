@@ -15,7 +15,7 @@ const checkAuth = (req, res, next) => {
         res.status(403).send('You need to be authenticated')
     }
 }
- 
+
 router.post('/', checkAuth, function (req, res, next) {
     const body = req.body
     console.log(body);
@@ -28,5 +28,16 @@ router.post('/', checkAuth, function (req, res, next) {
         res.status(500).send(err)
     })
 });
+
+router.delete('/:id', async function (req, res) {
+    const id = req.params.id
+    try {
+        await TweetsModel.deleteOne({ _id: id })
+        res.json({message: "The tweet has been deleted"})
+    }catch(err) {
+        res.status(500).send(err)
+    }
+
+})
 
 module.exports = router
