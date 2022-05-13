@@ -3,7 +3,7 @@ const router = express.Router();
 const TweetsModel = require('../models/tweet.model');
 
 router.get('/', function (req, res) {
-    res.send("tweets");
+    TweetsModel.find({}).exec().then(tweets => res.json(tweets) )
 });
 
 const checkAuth = (req, res, next) => {
@@ -18,10 +18,12 @@ const checkAuth = (req, res, next) => {
 
 router.post('/', checkAuth, function (req, res, next) {
     const body = req.body
-    console.log(body);
+    const info = req.user
+    console.log("INFO USER", info);
+    console.log("INFO BODY", body);
 
     const newtweet = new TweetsModel(body)
-
+    newtweet.ownerID = req.user._id
     newtweet.save().then(resultat => {
         res.json(resultat)
     }).catch(err => {
