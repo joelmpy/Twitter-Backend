@@ -4,6 +4,7 @@ const TweetsSchema = new mongoose.Schema({
 
     ownerID: { type: mongoose.Types.ObjectId, ref: 'User' },
     text: { type: String, max: 280 },
+    datePost: { type: Date, default: Date.now },
     like: Number,
     numRetweets: Number,
     numComments: Number,
