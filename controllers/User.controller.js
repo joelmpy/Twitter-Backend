@@ -55,7 +55,7 @@ router.post('/login', passport.authenticate('local'), function(req, res, next){
     if (!req.user) {
         res.status(401).send('The username password is incorrect')
     }
-    res.json({message: 'ok'})
+    res.status(200).json({message: 'ok'})
 })
 
 module.exports = router
