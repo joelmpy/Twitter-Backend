@@ -5,8 +5,8 @@ It's twitter but it's not
 ## Features
 
 * Users can create an account via Signup and can access the site via Login
-* User can tweet (write something and post it on the site)
-* User can like, retweet and comment on other tweet
+* Users can tweet (write something and post it on the site)
+* Users can like, retweet and comment on other tweet
 
 ## Usage
 
